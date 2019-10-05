@@ -14,3 +14,4 @@ ylabel('Power');
 title('Plotted Wave Graph')
 SpectrumAnalyzer(y, 10000);
 soundsc(y, 10000)
+%ADD SOMETHING
