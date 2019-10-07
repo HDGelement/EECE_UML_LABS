@@ -1,7 +1,7 @@
 %%part 1
 f0 = 200;
 t = 0:0.0001:10;
-y = (2*pi*f0*t); 
+y = cos(2*pi*f0*t); 
 
 %a
 SpectrumAnalyzer(y, 10000);
