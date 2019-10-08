@@ -27,11 +27,8 @@ for i = 1:10
     k = 1 + (i*2);
     fprintf("this is my number %0f \n" ,k);
     y2 = y + sin((k * pi / 2) / k)*cos(k * 2 * pi * f0 * t);
-    figure(k+2);
     plot(t(1:(length(t))/200), y2(1:(length(y2))/200), 'g--');
     SpectrumAnalyzer(y2, 10000);
-    movegui(figure(3 + (i*2)), 'east')
-    movegui(figure(4 + (i*2)), 'west')
-    fprintf("move me %0f \n", (((i-1)*2)+5));
-    pause(5);
+    fprintf("move me %0f", (((i-1)*2)+5));
+    pause(3);
 end
