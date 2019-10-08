@@ -28,15 +28,28 @@ k = 1;
 y2 = y + sin((k * pi / 2) / k)*cos(k * 2 * pi * f0 * t);
 figure(5)
 plot(t(1:(length(t))/200), y2(1:(length(y2))/200), 'g--');
+
 for i = 1:10
     k = 1 + (i*2);
     fprintf("this is my number %0f \n" ,k);
     y2 = y + sin((k * pi / 2) / k)*cos(k * 2 * pi * f0 * t);
     figure(k+2);
-    plot(t(1:(length(t))/200), y2(1:(length(y2))/200), 'g--');
+    plot(t(1:(length(t))/200), y2(1:(length(y2))/200), 'g-');
     SpectrumAnalyzer(y2, 10000);
     movegui(figure(3 + (i*2)), 'east')
     movegui(figure(4 + (i*2)), 'west')
     fprintf("move me %0f \n", (((i-1)*2)+5));
-    pause(5);
+    soundsc(y2, 10000)
+    %pause(5);
 end
+
+%part 3 WHOLY SHIT;;;;;;;;;;END MY SUFFERING PLEASE
+%REEEEEEEEEEEEEEEEEEEEEEEZZZZ
+Fs = 10000;
+y3=filter(Num,1,y2); %% y2 = squarewave
+plot(t(1:500), y3(1:500), 'r--');
+soundsc(y3, 10000)
+
+SpectrumAnalyzer(y3, 10000)
+soundsc(y3, 12000);
+%you suck
