@@ -1,4 +1,4 @@
-%%part 1
+%%part 1 - remember he said show off
 Points = input ('Grade: ');
 E = 0-300
 D = 300-320
