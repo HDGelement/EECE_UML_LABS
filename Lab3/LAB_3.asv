@@ -32,7 +32,7 @@ plot(t(1:(length(t))/200), y2(1:(length(y2))/200), 'g--'); %plot 5
 for i = 1:10
     k = 1 + (i*2);
     fprintf("this is my number %0f \n" ,k); %debugging
-    y2 = y + sin((k * pi / 2) / k)*cos(k * 2 * pi * f0 * t); 
+    y2 = y + sin((k * pi / 2) / k)*cos(k * 2 * pi * f0 * t); % you dont need
     figure(k+2);
     plot(t(1:(length(t))/200), y2(1:(length(y2))/200), 'g');
     SpectrumAnalyzer(y2, 10000);
