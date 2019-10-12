@@ -62,9 +62,11 @@ soundsc(y3, 10000)
 
 %%part 4 
 load handel
+SpectrumAnalyzer(y, Fs);
+soundsc(y, Fs)
 SpectrumAnalyzer(y3, 10000)
-soundsc(y3, 12000); %Scary Sound
-y3 = filter(Num,1,y3);
-plot(t(1:500), y3(1:500));
-SpectrumAnalyzer(y3, 12000);
+soundsc(y, 12000); %Scary Sound
+y = filter(Num1bad,1,y);
+plot(t(1:500), y(1:500));
+SpectrumAnalyzer(y, 12000);
 %DONE 
