@@ -18,7 +18,7 @@ hold on;
 f0 = 400;
 y1 = cos(2*pi*f0*t);
 figure(3)
-plot(t(1:(length(t))/200), y 1(1:(length(y1))/200), 'r-'); %plot 3
+plot(t(1:(length(t))/200), y1(1:(length(y1))/200), 'r-'); %plot 3
 SpectrumAnalyzer(y1, 10000); %plot 4
 soundsc(y1, 10000);
 
@@ -31,7 +31,7 @@ plot(t(1:(length(t))/200), y2(1:(length(y2))/200), 'g--'); %plot 5
 
 for i = 1:10
     k = 1 + (i*2);
-    fprintf("this is my number %0f \n" ,k); %debugging
+    fprintf("this is my number %0f \n" ,k); %debugging you dont need
     y2 = y + sin((k * pi / 2) / k)*cos(k * 2 * pi * f0 * t); 
     figure(k+2);
     plot(t(1:(length(t))/200), y2(1:(length(y2))/200), 'g');
@@ -39,8 +39,8 @@ for i = 1:10
     movegui(figure(3 + (i*2)), 'east') % you dont need
     movegui(figure(4 + (i*2)), 'west') % you dont need
     fprintf("move me %0f \n", (((i-1)*2)+5)); % you dont need 
-    soundsc(y2, 10000)
-    %pause(5);
+    soundsc(y2, 10000);
+    pause(5);
 end
 
 %{ 
