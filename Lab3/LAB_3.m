@@ -25,14 +25,14 @@ soundsc(y1, 10000);
 %%part 2, y1 and y has been used, - Create a square wave from the sinusoids, after each step plot a small section, and run
 %the spectrum Analyzer function.
 k = 3;
-y2 = y + sin((k * (pi / 2)) / k)*cos(k * 2 * pi * f0 * t);
+y2 = (y) + (sin((k * (pi / 2)) / k)*cos(k * 2 * pi * f0 * t));
 figure(5)
 plot(t(1:(length(t))/200), y2(1:(length(y2))/200), 'g--'); %plot 5
 
 for i = 1:10
     k = 1 + (i*2);
     fprintf("this is my number %0f \n" ,k); %debugging you dont need
-    y2 = y + sin((k * pi / 2) / k)*cos(k * 2 * pi * f0 * t); 
+    y2 = y + (sin((k * pi / 2) / k)*cos(k * 2 * pi * f0 * t)); 
     figure(k+2);
     plot(t(1:(length(t))/200), y2(1:(length(y2))/200), 'g');
     SpectrumAnalyzer(y2, 10000);
@@ -40,7 +40,7 @@ for i = 1:10
     movegui(figure(4 + (i*2)), 'west') % you dont need
     fprintf("move me %0f \n", (((i-1)*2)+5)); % you dont need 
     soundsc(y2, 10000);
-    pause(5);
+    %pause(5);
 end
 
 %{ 
@@ -54,9 +54,12 @@ for k = 1:2:21
 end
 %}
 
+%LABEL kms
 %part 3 
 Fs = 10000;
 y3=filter(Num,1,y2);
+SpectrumAnalyzer(y3, Fs);
+figure(420);
 plot(t(1:500), y3(1:500), 'r--');
 soundsc(y3, 10000)
 
@@ -64,11 +67,12 @@ soundsc(y3, 10000)
 load handel
 SpectrumAnalyzer(y, Fs);
 figure(420);
-plot(t(1:500), y(1:500), 'g');
+plot(t(1:10000), y(1:10000), 'g');
 soundsc(y, Fs)
 %SpectrumAnalyzer(y, 10000)
 soundsc(y, 12000); %Scary Sound
 y = filter(Num1bad,1,y);
-plot(t(1:500), y(1:500));
+figure(500);
+plot(t(1:10000), y(1:10000), 'g');
 SpectrumAnalyzer(y, 12000);
 %DONE 
