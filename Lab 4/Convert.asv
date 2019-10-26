@@ -32,7 +32,7 @@ function pm = plus_minus(Points)
     end
 end
 
-function p = parray() %this function creates an array for the grades, the plus or minus
+function p = parray() %this function creates an array for the grades, the plus or minus and
     num = 0;
     p(1, 1) = 0;
     p(1, 2) = 300;
