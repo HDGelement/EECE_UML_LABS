@@ -20,10 +20,10 @@ end
 function p = addpoly(nomi1, nomi2)
 polysize = size(nomi1, 2) - size(nomi2, 2);
     if polysize < 0
-        nomi1 = [zeros(1, polysize) nomi1];
+        nomi1 = [zeros(1, abs(polysize)) nomi1];
         p = nomi1 + nomi2;
     elseif polysize > 0
-        nomi2 = [zeros(1, polysize) nomi2];
+        nomi2 = [zeros(1, abs(polysize)) nomi2];
         p = nomi1 + nomi2;
-    end 
+    end
 end
