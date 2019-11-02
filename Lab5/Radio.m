@@ -55,8 +55,9 @@ movegui(figure(10), 'east');
 soundsc(am2, 10000)
 
 am3 = abs(am);
+am3 = filter(Num,1,am3);
 figure(11)
-plot(t(1: (length(t))/200), am3(1:(length(am3)/200)), 'b-');
+plot(t(1000: (length(t))/50), am3(1000:(length(am3)/50)), 'b-');
 movegui(figure(11), 'west');
 figure(12)
 SpectrumAnalyzer(am3, 10000);
@@ -65,19 +66,19 @@ soundsc(am3, 10000);
 
 am4 = filter(Num,1,am3);
 
-
-while am3 ~= am4
-    am4 = filter(Num,1,am3);
-    am3 = am4;
-    fprintf("hello")
+while am4 ~= am3
+    n = n + 1
+    am4 = filter(Num, 1, am3);
+    am3 = am4
 end
+
 
 figure(13)
 plot(t(1000: (length(t))/50), am4(1000:(length(am4)/50)), 'b-');
-movegui(figure(13), 'west');
+movegui(figure(13), 'north');
 figure(14)
 SpectrumAnalyzer(am4, 10000);
-movegui(figure(14), 'east');
+movegui(figure(14), 'south');
 soundsc(am4, 10000);
 
 
