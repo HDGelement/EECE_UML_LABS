@@ -1,12 +1,14 @@
+%1
 t = 0:0.0001:10;
 f = 1000;
+
 z = cos(2 * pi * 1000 * t); % sin((2)*(pi)*(frequency)*(time));
 figure(1)
-plot(t(1: (length(t))/200), z(1:(length(z)/200)), 'b-');
-movegui(figure(1), 'west') % you dont need
+plot(t(1: (length(t))/750), z(1:(length(z)/750)), 'b-');
+movegui(figure(1), 'west') % not needed but moves to west side of screen
 figure(2)
 SpectrumAnalyzer(z, f);
-movegui(figure(2), 'east') % you dont need
+movegui(figure(2), 'east') % not needed but moves to east side of screen
 
 sin1 = cos(2 * pi * 100 * t);
 figure(3)
@@ -18,7 +20,7 @@ movegui(figure(4), 'east');
 
 am = (1+sin1).*z;
 figure(5)
-plot(t(1: (length(t))/200), am(1:(length(am)/200)), 'b-');
+plot(t(1: 300), am(1:(300)), 'b-');
 movegui(figure(5), 'west');
 figure(6)
 SpectrumAnalyzer(am, 10000);
@@ -67,9 +69,9 @@ soundsc(am3, 10000);
 am4 = filter(Num,1,am3);
 
 while am4 ~= am3
-    n = n + 1
+    n = n + 1;
     am4 = filter(Num, 1, am3);
-    am3 = am4
+    am3 = am4;
 end
 
 

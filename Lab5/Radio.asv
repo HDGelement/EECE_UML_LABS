@@ -1,5 +1,8 @@
+%1
 t = 0:0.0001:10;
 f = 1000;
+
+%
 z = cos(2 * pi * 1000 * t); % sin((2)*(pi)*(frequency)*(time));
 figure(1)
 plot(t(1: (length(t))/200), z(1:(length(z)/200)), 'b-');
@@ -55,7 +58,7 @@ movegui(figure(10), 'east');
 soundsc(am2, 10000)
 
 am3 = abs(am);
-am3 = filter(Num, 1, am3);
+am3 = filter(Num,1,am3);
 figure(11)
 plot(t(1000: (length(t))/50), am3(1000:(length(am3)/50)), 'b-');
 movegui(figure(11), 'west');
@@ -66,11 +69,10 @@ soundsc(am3, 10000);
 
 am4 = filter(Num,1,am3);
 
-
-while  am4 
-    n = n + 1
+while am4 ~= am3
+    n = n + 1;
     am4 = filter(Num, 1, am3);
-    am3 = am4
+    am3 = am4;
 end
 
 
