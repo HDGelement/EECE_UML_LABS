@@ -1,3 +1,4 @@
+scale = 100;
 twosec = 0:0.0001:2; 
 ringingtn = sin(2*pi*440*twosec)+sin(2*pi*480*twosec);
 forsec = 0:0.0001:4;
@@ -15,8 +16,5 @@ if busy == 1
     pause(3)
 else
 end
-%for i = 1:500
- %   scale = i;
-  %  plot(twosec(1: (length(twosec)/scale)), totalr(1:(length(totalr))/scale), 'b-');
-   % plot(forsec(1: (length(forsec)/scale)), total_busytone(1:(length(total_busytone))/scale), 'b-');
-%end
+plot(t(1: (length(twosec)/scale)), totalr(1:(length(tn))/scale), 'b-');
+plot(t(1: (length(forsec)/scale)), total_busytone(1:(length(tn))/scale), 'b-');

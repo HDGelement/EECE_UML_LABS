@@ -1,10 +1,10 @@
-duration = input('Duration of tone: ');
-if duration < 0.05
-    disp('Your requested duration is below the limit of 50ms');
+dur = input('Duration of tone: ');
+if dur < 0.05
+    disp('Your requested duration is lower than the limit of 50 sec');
     disp('Try again');
     error(msg);
-elseif duration > 1
-    disp('Your requested duration is above the limit of 100ms')
+elseif dur > 1
+    disp('Your requested duration is bigger the limit of 1 sec')
     disp('Try again');
     error(msg);
 end
