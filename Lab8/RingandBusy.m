@@ -15,8 +15,9 @@ if busy == 1
     pause(3)
 else
 end
-%for i = 1:500
- %   scale = i;
-  %  plot(twosec(1: (length(twosec)/scale)), totalr(1:(length(totalr))/scale), 'b-');
-   % plot(forsec(1: (length(forsec)/scale)), total_busytone(1:(length(total_busytone))/scale), 'b-');
-%end
+for i = 1:500
+    twelvesec = (2.*forsec) + (2.*twosec);
+    scale = i;
+    plot(twelvesec(1: (length(twelvesec)/scale)), totalr(1:(length(totalr))/scale), 'b-');
+    plot(twelvesec(1: (length(twelvesec)/scale)), total_busytone(1:(length(total_busytone))/scale), 'b-');
+end
