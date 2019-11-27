@@ -13,8 +13,12 @@ void setup() {
   pinMode(pushButton, INPUT);
   pinMode(pushButton2, INPUT);
   pinMode(pushButton3, INPUT);
+
+  buttonState = digitalRead(pushButton);
+  buttonState2 = digitalRead(pushButton2);
+  buttonState3 = digitalRead(pushButton3);
   
-  while(buttonState == LOW && buttonState2 == LOW && buttonState3 == LOW){ //ask user to press a damn button if it hasn't been pressed
+  while(buttonState == HIGH && buttonState2 == HIGH && buttonState3 == HIGH){ //ask user to press a damn button if it hasn't been pressed
     Serial.println("Please Press a Button");
     buttonState = digitalRead(pushButton);
     buttonState2 = digitalRead(pushButton2);
@@ -22,7 +26,7 @@ void setup() {
     delay(250);
   }
   
-  if(buttonState == HIGH){ //button 1 sound
+  if(buttonState == LOW){ //button 1 sound
     delay(250);
     Serial.println("Alarm...");
     for(i = 0 ; i < 4 ; i++){
@@ -31,9 +35,9 @@ void setup() {
       noTone(pin);
       (500);
     }
+
 }
-  else if (buttonState2 == HIGH){ //button 2
-    delay(1000);
+  else if (buttonState2 == LOW){ //button 2
     Serial.println("Robot...");
     tone(pin, 2800, 100);
     delay(100);
@@ -45,7 +49,8 @@ void setup() {
     delay(30);
     delay(100);
   }
-  else if (buttonState3 == HIGH){ //button 3
+  
+  else if (buttonState3 == LOW){ //button 3
     delay(1000);
     Serial.println("Hyperspace...");
     for(duration = 15 ; duration > 0 ; duration--){
@@ -59,15 +64,12 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  Serial.print("Button 1:");
   buttonState = digitalRead(pushButton);
   Serial.println(buttonState);
   delay(250);
-  Serial.print("Button 2:");
   buttonState2 = digitalRead(pushButton2);
   Serial.println(buttonState2);
   delay(250);
-  Serial.print("Button 3:");
   buttonState3 = digitalRead(pushButton3);
   Serial.println(buttonState3);
   delay(250);
