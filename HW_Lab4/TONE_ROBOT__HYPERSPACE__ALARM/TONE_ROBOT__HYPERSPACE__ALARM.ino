@@ -18,6 +18,7 @@ void setup() {
     Serial.println("Please Press a Button");
     buttonState = digitalRead(pushButton);
     buttonState2 = digitalRead(pushButton2);
+    buttonState3 = digitalRead(pushButton3);
     delay(250);
   }
   
@@ -30,28 +31,9 @@ void setup() {
       noTone(pin);
       (500);
     }
-  
-  delay(1000);
-  Serial.println("Robot...");
-  tone(pin, 2800, 100);
-  delay(100);
-  tone(pin, 2400, 200);
-  delay(200);
-  tone(pin, 4200, 140);
-  delay(140);
-  tone(pin, 2000, 30);
-  delay(30);
-
-  delay(1000);
-  Serial.println("Hyperspace...");
-  for(duration = 15 ; duration > 0 ; duration--){
-    for(freq = 2000 ; freq <= 2500 ; freq = freq + 20){
-      tone(pin, freq, duration);
-      delay(duration);
-    }
-  }
 }
   else if (buttonState2 == HIGH){ //button 2
+    delay(1000);
     Serial.println("Robot...");
     tone(pin, 2800, 100);
     delay(100);
@@ -77,12 +59,15 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  Serial.print("Button 1:");
   buttonState = digitalRead(pushButton);
   Serial.println(buttonState);
   delay(250);
+  Serial.print("Button 2:");
   buttonState2 = digitalRead(pushButton2);
   Serial.println(buttonState2);
   delay(250);
+  Serial.print("Button 3:");
   buttonState3 = digitalRead(pushButton3);
   Serial.println(buttonState3);
   delay(250);
