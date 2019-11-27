@@ -11,5 +11,4 @@ void loop() {
   // put your main code here, to run repeatedly:
   buttonState = digitalRead(pushButton);
   Serial.println(buttonState);
-  delay(250);
 }
