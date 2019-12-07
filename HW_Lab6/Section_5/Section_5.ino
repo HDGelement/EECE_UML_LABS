@@ -1,7 +1,7 @@
 int n; 
 int photopin = 0;
 int i = 0;
-int lightoff = 0;
+int lightconstant = 0;
 int lightpin = 13;
 
 void setup() {
@@ -12,8 +12,8 @@ void setup() {
   Serial.println("please do not cover the photoresister for 10 seconds.");
   delay(500);
   while (i < 5){
-    lightoff = analogRead(photopin);
-    Serial.printf("i hate you : %d \n", lightoff);
+    lightconstant = analogRead(photopin);
+    Serial.printf("i hate you : %d \n", lightconstant);
     i = i + 1;
   }
   delay(1000);
@@ -25,14 +25,14 @@ void loop() {
   Serial.println(n);
   delay(100);
   //lightoff
-  if(lightoff < n || lightoff == n){
+  if(lightconstant < n || lightconstant == n){
     n = analogRead(photopin);
     Serial.println("loop 1");
     digitalWrite(lightpin, LOW);
     delay(250);
   }
-  //light off
-  else if(lightoff > n){
+  //lighton
+  else if(lightconstant > n){
     n = analogRead(photopin);
     Serial.println("loop 2");
     digitalWrite(lightpin, HIGH);
