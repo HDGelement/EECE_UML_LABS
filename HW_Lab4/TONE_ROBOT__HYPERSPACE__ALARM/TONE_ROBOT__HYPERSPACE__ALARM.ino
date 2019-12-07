@@ -8,7 +8,7 @@ int buttonState2;
 int buttonState3;
 
 void setup() {
-  // put your setup code here, to run once:
+  // FOR TROUBLEHSOOTING PURPOSES
   Serial.begin(9600);
   pinMode(pushButton, INPUT);
   pinMode(pushButton2, INPUT);
@@ -37,7 +37,7 @@ void setup() {
     }
 
 }
-  else if (buttonState2 == LOW){ //button 2
+  else if (buttonState2 == LOW){ //button 2 sound
     Serial.println("Robot...");
     tone(pin, 2800, 100);
     delay(100);
@@ -50,7 +50,7 @@ void setup() {
     delay(100);
   }
   
-  else if (buttonState3 == LOW){ //button 3
+  else if (buttonState3 == LOW){ //button 3 sound
     delay(1000);
     Serial.println("Hyperspace...");
     for(duration = 15 ; duration > 0 ; duration--){
@@ -62,6 +62,9 @@ void setup() {
   }
 }
 
+
+
+// CODE USED FOR TROUBLESHOOTING PURPOSES
 void loop() {
   // put your main code here, to run repeatedly:
   buttonState = digitalRead(pushButton);
