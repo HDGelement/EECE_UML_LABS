@@ -25,14 +25,14 @@ void loop() {
   Serial.println(n);
   delay(100);
   //lightoff
-  if(lightoff < n - 50 || lightoff == n){
+  if(lightoff < n || lightoff == n){
     n = analogRead(photopin);
     Serial.println("loop 1");
     digitalWrite(lightpin, LOW);
     delay(250);
   }
   //light off
-  else if(lightoff > n + 50){
+  else if(lightoff > n){
     n = analogRead(photopin);
     Serial.println("loop 2");
     digitalWrite(lightpin, HIGH);
